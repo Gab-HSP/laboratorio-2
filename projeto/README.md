@@ -24,7 +24,7 @@
 * Eu quero poder cancelar um pedido de aluguel que ainda não foi aprovado,
 * Para desistir do processo sem comprometer minha relação com os agentes.
 
-##6. Visualização de Contratos
+## 6. Visualização de Contratos
 * Como um cliente,
 * Eu quero poder visualizar os detalhes dos contratos de aluguel já assinados, incluindo informações sobre o veículo e o crédito associado (se aplicável),
 * Para manter um registro claro das minhas transações.
