@@ -76,7 +76,7 @@
 * Eu quero poder registrar a propriedade de um veículo alugado como sendo do cliente, da empresa ou do banco,
 * Para manter um registro claro da titularidade do bem.
 
-## 18. Relatórios e Estatísticas
+## 16. Relatórios e Estatísticas
 * Como um agente,
 *Eu quero poder gerar relatórios sobre pedidos, contratos e veículos alugados,
 * Para analisar o desempenho do negócio e tomar decisões estratégicas.
