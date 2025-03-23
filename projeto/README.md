@@ -66,22 +66,12 @@
 * Eu quero precisar fazer login com credenciais seguras para acessar o sistema,
 * Para garantir que apenas usuários autorizados possam realizar operações.
 
-## 14. Geração Dinâmica de Páginas Web
-* Como um usuário do sistema,
-* Eu quero que as páginas web sejam geradas dinamicamente com base no meu perfil (cliente ou agente),
-* Para ter uma experiência personalizada e relevante.
-
-## 15. Integração com Computadores Locais e Internet
-* Como um usuário do sistema,
-* Eu quero que o servidor central esteja sempre disponível e sincronizado com os computadores locais e agentes via Internet,
-* Para garantir que as operações sejam realizadas em tempo real.
-
-## 16. Notificações de Status
+## 14. Notificações de Status
 * Como um cliente,
 * Eu quero receber notificações por e-mail ou no sistema sobre mudanças no status do meu pedido (em análise, aprovado, recusado),
 * Para me manter informado sem precisar consultar manualmente.
 
-## 17. Registro de Propriedade de Veículos
+## 15. Registro de Propriedade de Veículos
 * Como um agente,
 * Eu quero poder registrar a propriedade de um veículo alugado como sendo do cliente, da empresa ou do banco,
 * Para manter um registro claro da titularidade do bem.
