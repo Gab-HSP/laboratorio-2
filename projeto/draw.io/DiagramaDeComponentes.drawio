@@ -1,0 +1,54 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.0.0" version="26.1.3">
+  <diagram name="Página-1" id="0baeC1T9_Wn-1TEpzrgX">
+    <mxGraphModel dx="1426" dy="1916" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-35" value="Computador:Browser" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="254" y="-80" width="320" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-34" value="API REST" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="99" y="170" width="630" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-33" value="Banco de Dados" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="240" y="490" width="386" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iA4XpVnBiFOq4aOnz0Fv-23" target="iA4XpVnBiFOq4aOnz0Fv-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-23" value="ClienteController" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="339" y="210" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iA4XpVnBiFOq4aOnz0Fv-24" target="iA4XpVnBiFOq4aOnz0Fv-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-24" value="ClienteService" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="344" y="310" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-25" value="ClienteModel" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="170" y="310" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-26" value="ClienteDTO" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="540" y="310" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-27" value="ClienteRepository" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="344" y="550" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.086;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="iA4XpVnBiFOq4aOnz0Fv-24" target="iA4XpVnBiFOq4aOnz0Fv-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.057;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=1;startArrow=classic;dashed=1;" edge="1" parent="1" source="iA4XpVnBiFOq4aOnz0Fv-25" target="iA4XpVnBiFOq4aOnz0Fv-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iA4XpVnBiFOq4aOnz0Fv-40" target="iA4XpVnBiFOq4aOnz0Fv-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iA4XpVnBiFOq4aOnz0Fv-40" value="Cadastro de Clientes" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="364" y="-20" width="100" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
