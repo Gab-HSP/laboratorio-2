@@ -1,9 +1,11 @@
 package com.example.aluguel.service;
 
+import com.example.aluguel.dto.ClienteCadastroDTO;
 import com.example.aluguel.dto.ClienteDTO;
 import com.example.aluguel.model.Cliente;
 import com.example.aluguel.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,28 +18,43 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    // Método para cadastro simplificado
+    @Transactional
+    public Cliente cadastrarCliente(ClienteCadastroDTO cadastroDTO) {
+        if (clienteRepository.existsByEmail(cadastroDTO.getEmail())) {
+            throw new IllegalArgumentException("Email já cadastrado");
+        }
+        
+        Cliente cliente = new Cliente();
+        cliente.setNome(cadastroDTO.getNome());
+        cliente.setEmail(cadastroDTO.getEmail());
+        cliente.setSenha(passwordEncoder.encode(cadastroDTO.getSenha()));
+        
+        return clienteRepository.save(cliente);
+    }
+
     @Transactional
     public ClienteDTO createCliente(ClienteDTO clienteDTO) {
         validarCliente(clienteDTO);
         
         Cliente cliente = new Cliente();
+        cliente.setNome(clienteDTO.getNome());
+        cliente.setEmail(clienteDTO.getEmail());
+        cliente.setSenha(passwordEncoder.encode(clienteDTO.getSenha()));
         cliente.setRg(clienteDTO.getRg());
         cliente.setCpf(clienteDTO.getCpf());
         cliente.setEndereco(clienteDTO.getEndereco());
         cliente.setProfissao(clienteDTO.getProfissao());
         
-        // Adiciona entidades empregadoras
-        if (clienteDTO.getEntidadesEmpregadoras() != null) {
-            for (String entidade : clienteDTO.getEntidadesEmpregadoras()) {
-                cliente.adicionarEntidadeEmpregadora(entidade);
-            }
+        if (clienteDTO.getEntidadesReguladoras() != null) {
+            clienteDTO.getEntidadesReguladoras().forEach(cliente::adicionarEntidadeReguladora);
         }
         
-        // Adiciona rendimentos
-        if (clienteDTO.getRendimentosAuferidos() != null) {
-            for (Double rendimento : clienteDTO.getRendimentosAuferidos()) {
-                cliente.adicionarRendimento(rendimento);
-            }
+        if (clienteDTO.getRendimentosAufericos() != null) {
+            clienteDTO.getRendimentosAufericos().forEach(cliente::adicionarRendimento);
         }
         
         Cliente savedCliente = clienteRepository.save(cliente);
@@ -58,29 +75,23 @@ public class ClienteService {
 
     @Transactional
     public ClienteDTO updateCliente(Long id, ClienteDTO clienteDTO) {
-        validarCliente(clienteDTO);
-        
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
         
+        cliente.setNome(clienteDTO.getNome());
+        cliente.setEmail(clienteDTO.getEmail());
         cliente.setRg(clienteDTO.getRg());
         cliente.setEndereco(clienteDTO.getEndereco());
         cliente.setProfissao(clienteDTO.getProfissao());
         
-        // Atualiza entidades empregadoras
-        cliente.getEntidadesEmpregadoras().clear();
-        if (clienteDTO.getEntidadesEmpregadoras() != null) {
-            for (String entidade : clienteDTO.getEntidadesEmpregadoras()) {
-                cliente.adicionarEntidadeEmpregadora(entidade);
-            }
+        cliente.getEntidadesReguladoras().clear();
+        if (clienteDTO.getEntidadesReguladoras() != null) {
+            clienteDTO.getEntidadesReguladoras().forEach(cliente::adicionarEntidadeReguladora);
         }
         
-        // Atualiza rendimentos
-        cliente.getRendimentosAuferidos().clear();
-        if (clienteDTO.getRendimentosAuferidos() != null) {
-            for (Double rendimento : clienteDTO.getRendimentosAuferidos()) {
-                cliente.adicionarRendimento(rendimento);
-            }
+        cliente.getRendimentosAufericos().clear();
+        if (clienteDTO.getRendimentosAufericos() != null) {
+            clienteDTO.getRendimentosAufericos().forEach(cliente::adicionarRendimento);
         }
         
         Cliente updatedCliente = clienteRepository.save(cliente);
@@ -97,12 +108,14 @@ public class ClienteService {
     private ClienteDTO convertToDTO(Cliente cliente) {
         ClienteDTO dto = new ClienteDTO();
         dto.setId(cliente.getId());
+        dto.setNome(cliente.getNome());
+        dto.setEmail(cliente.getEmail());
         dto.setRg(cliente.getRg());
         dto.setCpf(cliente.getCpf());
         dto.setEndereco(cliente.getEndereco());
         dto.setProfissao(cliente.getProfissao());
-        dto.setEntidadesEmpregadoras(cliente.getEntidadesEmpregadoras());
-        dto.setRendimentosAuferidos(cliente.getRendimentosAuferidos());
+        dto.setEntidadesReguladoras(cliente.getEntidadesReguladoras());
+        dto.setRendimentosAufericos(cliente.getRendimentosAufericos());
         return dto;
     }
     
@@ -115,14 +128,14 @@ public class ClienteService {
             throw new RuntimeException("CPF já cadastrado");
         }
         
-        if (clienteDTO.getEntidadesEmpregadoras() != null && 
-            clienteDTO.getEntidadesEmpregadoras().size() > 3) {
-            throw new RuntimeException("Máximo de 3 entidades empregadoras permitidas");
+        if (clienteDTO.getEntidadesReguladoras() != null && 
+            clienteDTO.getEntidadesReguladoras().size() > 3) {
+            throw new RuntimeException("Máximo de 3 entidades reguladoras permitidas");
         }
         
-        if (clienteDTO.getRendimentosAuferidos() != null && 
-            clienteDTO.getRendimentosAuferidos().size() > 3) {
-            throw new RuntimeException("Máximo de 3 rendimentos auferidos permitidos");
+        if (clienteDTO.getRendimentosAufericos() != null && 
+            clienteDTO.getRendimentosAufericos().size() > 3) {
+            throw new RuntimeException("Máximo de 3 rendimentos aufericos permitidos");
         }
     }
 }

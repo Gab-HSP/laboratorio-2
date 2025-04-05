@@ -1,22 +1,32 @@
 package com.example.aluguel.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-public class Cliente {
-    
-    private static final int LIMITE_RENDIMENTO_ENTIDADE = 3;
+public class Cliente implements UserDetails {
+    private static final int LIMITE_REGULADORAS_AUFERICOS = 3;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    private String nome;
+    private String email;
+    private String senha;
+    
+    @OneToOne
+    private Automovel automovelAlugado;
+    
+    @OneToOne
+    private Automovel automovelProprietario;
     
     private String rg;
     private String cpf;
@@ -24,40 +34,100 @@ public class Cliente {
     private String profissao;
     
     @ElementCollection
-    private List<String> entidadesEmpregadoras = new ArrayList<>();
+    private List<String> entidadesReguladoras = new ArrayList<>();
     
     @ElementCollection
-    private List<Double> rendimentosAuferidos = new ArrayList<>();
+    private List<Double> rendimentosAufericos = new ArrayList<>();
+    
+    // UserDetails methods
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_CLIENTE"));
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
     // Getters e Setters
     public Long getId() {
         return id;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
-
-    public String getRg() {
-        return rg;
+    
+    public String getNome() {
+        return nome;
     }
-
-    public void setRg(String rg) {
-        this.rg = rg;
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String getSenha() {
+        return senha;
+    }
+    
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getRg() {
+        return rg;
     }
 
     public String getEndereco() {
         return endereco;
     }
-
+ 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
@@ -70,52 +140,33 @@ public class Cliente {
         this.profissao = profissao;
     }
 
-    public List<String> getEntidadesEmpregadoras() {
-        return entidadesEmpregadoras;
+    public void setEntidadesReguladoras(List<String> entidadesReguladoras) {
+        this.entidadesReguladoras = entidadesReguladoras;
     }
 
-    public void setEntidadesEmpregadoras(List<String> entidadesEmpregadoras) {
-        this.entidadesEmpregadoras = entidadesEmpregadoras;
+    public List<String> getEntidadesReguladoras() {
+        return entidadesReguladoras;
     }
 
-    public List<Double> getRendimentosAuferidos() {
-        return rendimentosAuferidos;
+    public void setRendimentosAufericos(List<Double> rendimentosAufericos) {
+        this.rendimentosAufericos = rendimentosAufericos;
     }
 
-    public void setRendimentosAuferidos(List<Double> rendimentosAuferidos) {
-        this.rendimentosAuferidos = rendimentosAuferidos;
+    public List<Double> getRendimentosAufericos() {
+        return rendimentosAufericos;
     }
 
-    public void adicionarEntidadeEmpregadora(String entidade) {
-        if (entidadesEmpregadoras.size() >= LIMITE_RENDIMENTO_ENTIDADE) {
-            throw new IllegalStateException("Limite máximo de entidades empregadoras atingido (3)");
+    public void adicionarEntidadeReguladora(String entidade) {
+        if (entidadesReguladoras.size() >= LIMITE_REGULADORAS_AUFERICOS) {
+            throw new IllegalStateException("Limite máximo de entidades reguladoras atingido");
         }
-        entidadesEmpregadoras.add(entidade);
+        entidadesReguladoras.add(entidade);
     }
     
     public void adicionarRendimento(Double rendimento) {
-        if (rendimentosAuferidos.size() >= LIMITE_RENDIMENTO_ENTIDADE) {
-            throw new IllegalStateException("Limite máximo de rendimentos auferidos atingido (3)");
+        if (rendimentosAufericos.size() >= LIMITE_REGULADORAS_AUFERICOS) {
+            throw new IllegalStateException("Limite máximo de rendimentos aufericos atingido");
         }
-        rendimentosAuferidos.add(rendimento);
-    }
-    
-    public void removerEntidadeEmpregadora(String entidade) {
-        entidadesEmpregadoras.remove(entidade);
-    }
-    
-    public void removerRendimento(Double rendimento) {
-        rendimentosAuferidos.remove(rendimento);
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", rg='" + rg + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", profissao='" + profissao + '\'' +
-                '}';
+        rendimentosAufericos.add(rendimento);
     }
 }
