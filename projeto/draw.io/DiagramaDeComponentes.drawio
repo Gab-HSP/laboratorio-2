@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.0.0" version="26.2.5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="26.2.8">
   <diagram name="Página-1" id="0baeC1T9_Wn-1TEpzrgX">
-    <mxGraphModel dx="2190" dy="1921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1659" dy="1612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -69,7 +69,7 @@
         <mxCell id="iZkkSHtkWeeERVJ4zuv6-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" parent="1" source="iZkkSHtkWeeERVJ4zuv6-9" target="iZkkSHtkWeeERVJ4zuv6-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="iZkkSHtkWeeERVJ4zuv6-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;startArrow=block;startFill=1;endArrow=none;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1" target="iZkkSHtkWeeERVJ4zuv6-19">
+        <mxCell id="iZkkSHtkWeeERVJ4zuv6-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;startArrow=block;startFill=1;endArrow=none;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="iZkkSHtkWeeERVJ4zuv6-19" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="537" y="-888" as="sourcePoint" />
             <mxPoint x="537" y="-1068" as="targetPoint" />
@@ -107,6 +107,42 @@
         </mxCell>
         <mxCell id="iZkkSHtkWeeERVJ4zuv6-21" value="AutomóveisRepository" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" parent="1" vertex="1">
           <mxGeometry x="454" y="-559" width="166" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="3tIGXLJRJGLkcitbK_T_-13" target="3tIGXLJRJGLkcitbK_T_-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;startArrow=block;startFill=1;endArrow=none;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="3tIGXLJRJGLkcitbK_T_-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1104" y="-888" as="sourcePoint" />
+            <mxPoint x="1104" y="-1068" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-13" value="PedidoController" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="1029" y="-889" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="3tIGXLJRJGLkcitbK_T_-15" target="3tIGXLJRJGLkcitbK_T_-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-15" value="PedidoService" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="1034" y="-789" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-16" value="PedidoModel" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="860" y="-789" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-17" value="PedidoDTO" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="-789" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.086;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="3tIGXLJRJGLkcitbK_T_-15" target="3tIGXLJRJGLkcitbK_T_-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.057;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=1;startArrow=classic;dashed=1;" edge="1" parent="1" source="3tIGXLJRJGLkcitbK_T_-16" target="3tIGXLJRJGLkcitbK_T_-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-20" value="Cadastro de Pedidos" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="1029" y="-1169" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3tIGXLJRJGLkcitbK_T_-21" value="PedidoRepository" style="shape=module;align=center;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="1021" y="-559" width="166" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
